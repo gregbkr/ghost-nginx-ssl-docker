@@ -1,19 +1,26 @@
-# Ghost + Nginx + let's Encrypt for production
+# Ghost + Nginx + Lets Encrypt (production ready)
+
+### 1. Prerequisit:
+- ubuntu
+- docker & docker-compose
+
+### 2. Build and run
 
 Copy code from repo:
 
-git clone https://github.com/gregbkr/ghost-nginx-docker
+git clone https://github.com/gregbkr/ghost-nginx-docker blog
 
 Use lets encrypt to get the certificate (replace domain and email with your own)
 
     docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest certonly --standalone --domain ec.satoshi.tech --email gregbkr@outlook.com --quiet --noninteractive --rsa-key-size 4096 --agree-tos --standalone-supported-challenges http-01
-    # add to force renew before 1 month previous expiration:  --force-renewal
+    # add this flat to force renew before 1 month previous expiration:  --force-renewal
 
 Run docker
 
     docker-compose up -d --build
 
-### Templates
+
+### 3. Templates
 
 Throught GUI or in command line below:
 
@@ -29,7 +36,7 @@ Now template Cle is available in settings/general
 
 
 
-### Backup and restore
+### 4. Backup and restore
 
 We just need to backup the folder /var/lib/ghost while the ghost container is stopped (for data persistency).
 
