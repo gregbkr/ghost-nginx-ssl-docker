@@ -20,12 +20,10 @@ services:
     build: ./ghost
     volumes:
       - ghost:/var/lib/ghost
-    # - $PWD/ghost/config.js:/var/lib/ghost/config.js
-    ports: 
-      - "2368:2368"
+    #ports: 
+    #  - "2368:2368"
     environment:
       - NODE_ENV=production
-    #command: bash -c "sleep 5s; npm start --production"
     restart: always
 
 volumes:
