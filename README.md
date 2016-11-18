@@ -3,7 +3,7 @@
 ### 1. Prerequisit:
 - ubuntu
 - docker & docker-compose
-- a DNS (ec.satoshi.tech in this example) point to your server IP)
+- a DNS (ec.satoshi.tech in this example) pointing to your server IP
 
 ### 2. Build and run
 
@@ -14,9 +14,9 @@ Copy code from repo:
 Use lets encrypt to get the certificate (replace domain and email with your own)
 
     docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest certonly --standalone --domain ec.satoshi.tech --email gregbkr@outlook.com --quiet --noninteractive --rsa-key-size 4096 --agree-tos --standalone-supported-challenges http-01
-    # add this flat to force renew before 1 month previous expiration:  --force-renewal
+    # --force-renewal   <-- add this flat to force renew a way before expiration  
 
-Edit confgis with your settings:
+Edit configs with your settings:
 
     nano nginx/blog.conf  <-- url & email
     nano ghost/config.js  <-- server_name
@@ -41,7 +41,6 @@ Copy in ghost & restart
 Now template Cle is available in settings/general
 
 
-
 ### 4. Backup and restore
 
 We just need to backup the folder /var/lib/ghost while the ghost container is stopped (for data persistency).
@@ -49,7 +48,6 @@ We just need to backup the folder /var/lib/ghost while the ghost container is st
 With script:
 
     scripts/backup.sh
-
 
 With crontab
 
