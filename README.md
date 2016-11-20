@@ -20,6 +20,7 @@ Edit configs with your settings:
 
     nano nginx/blog.conf  <-- url & email
     nano ghost/config.js  <-- server_name
+    nano docker-compose.yml  <-- your cert name
 
 Run docker
 
