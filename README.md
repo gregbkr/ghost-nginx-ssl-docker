@@ -9,7 +9,7 @@
 
 Copy code from repo:
 
-    git clone https://github.com/gregbkr/ghost-nginx-ssl-docker blog
+    git clone https://github.com/gregbkr/ghost-nginx-ssl-docker blog && cd blog
 
 Use lets encrypt to get the certificate (replace domain and email with your own)
 
