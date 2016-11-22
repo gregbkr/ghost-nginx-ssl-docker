@@ -1,11 +1,14 @@
 # Ghost + Nginx + Lets Encrypt (production ready)
 
-An easy setup to deploy quickly your blogging platform:
-* Ghost: very easy way to publish your blog (straight writing in a web page and no coding), could get some nice templates for free.
-* docker-compose: portable and easy to deploy, running in one command. 
-* Nginx: for proxy and easy/free SSL certificate with LetsEncrypt.
-
 ![ghost.png](https://github.com/gregbkr/ghost-nginx-ssl-docker/raw/master/ghost.png)
+
+An easy setup to deploy quickly your blogging platform:
+- Ghost: very easy way to publish your blog (straight writing in a web page and no coding), could get some nice templates for free.
+- docker-compose: portable and easy to deploy, running in one command. 
+- Nginx: for proxy and easy/free SSL certificate with LetsEncrypt.
+
+Notes: 
+- Ghost official docker image for dev is working great out of the box. But for production, I couldn't find other way than create a quick build for adding the config.json for ghost (probably because of perm issue as the image is not running as root, which is great for a web-front). With this workaround you still control the setup.
 
 ### 1. Prerequisit:
 - Ubuntu like OS
@@ -61,8 +64,8 @@ With crontab
 
 ```
 # Backup Ghost Blog: daily at 12:00 (noon)
-23 14 * * * /bin/bash -c "docker stop blog_ghost_1 && tar -zcvf /root/backup/ghost/ghost-$(date +\%A).tar.gz -C /var/lib/docker/volumes/blog_ghost/_data/ . && docker start blog_ghost_1"
+00 12 * * * /bin/bash -c "docker stop blog_ghost_1 && tar -zcvf /root/backup/ghost/ghost-$(date +\%A).tar.gz -C /var/lib/docker/volumes/blog_ghost/_data/ . && docker start blog_ghost_1"
 
 # Backup Ghost Blog: weely, monday at 01:00
-26 14 * * * /bin/bash -c "docker stop blog_ghost_1 && tar -zcvf /root/backup/ghost/ghost-$(date -I).tar.gz -C /var/lib/docker/volumes/blog_ghost/_data/ . && docker start blog_ghost_1"
+00 01 * * 1 /bin/bash -c "docker stop blog_ghost_1 && tar -zcvf /root/backup/ghost/ghost-$(date -I).tar.gz -C /var/lib/docker/volumes/blog_ghost/_data/ . && docker start blog_ghost_1"
 ```
