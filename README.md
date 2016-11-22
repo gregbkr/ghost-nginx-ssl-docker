@@ -1,7 +1,14 @@
 # Ghost + Nginx + Lets Encrypt (production ready)
 
+An easy setup to deploy quickly your blogging platform:
+* Ghost: very easy way to publish your blog (straight writing in a web page and no coding), could get some nice templates for free.
+* docker-compose: portable and easy to deploy, running in one command. 
+* Nginx: for proxy and easy/free SSL certificate with LetsEncrypt.
+
+![ghost.png](https://github.com/gregbkr/ghost-nginx-ssl-docker/raw/master/ghost.png)
+
 ### 1. Prerequisit:
-- ubuntu
+- Ubuntu like OS
 - docker & docker-compose
 - a DNS (ec.satoshi.tech in this example) pointing to your server IP
 
