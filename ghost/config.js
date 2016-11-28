@@ -9,18 +9,7 @@ var path = require('path'),
 config = {
     production: {
         url: 'http://ec.satoshi.tech',
-        mail: {
-
-	    transport: 'SMTP',
-	    from: '"Blog Admin" <admin@moderniso.com>',
-            options: {
-		service: 'Gmail',
-		auth: {
-                    user: 'moderncisoblog@gmail.com',
-                    pass: '2F&hl=en'
-                 }
-            }
-        },
+        mail: {},
         database: {
             client: 'sqlite3',
             connection: {
