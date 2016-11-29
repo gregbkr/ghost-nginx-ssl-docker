@@ -7,8 +7,8 @@ services:
     volumes:
       - $PWD/nginx/nginx.conf:/etc/nginx/nginx.conf
       - $PWD/nginx/blog.conf:/etc/nginx/sites-enabled/blog.conf
-      - /etc/letsencrypt/live/ec.satoshi.tech/privkey.pem:/etc/nginx/ec.satoshi.tech/privkey.pem
-      - /etc/letsencrypt/live/ec.satoshi.tech/fullchain.pem:/etc/nginx/ec.satoshi.tech/fullchain.pem
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /etc/ssl:/etc/ssl
     ports:
       - "80:80"
       - "443:443"
