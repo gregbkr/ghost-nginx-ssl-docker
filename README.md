@@ -50,18 +50,23 @@ Run docker
 
 ### 3. Templates
 
-Throught GUI or in command line below:
+My blog use the great willow free templates: https://raivis.com/willow-free-responsive-minimalist-ghost-blog-theme/ 
+
+You can install the template throught GUI /setting/general) or in command line below:
 
 Get a template
 
-    git clone https://github.com/phongtruongg/Cle templates/Cle
+    git clone https://github.com/raivis-vitols/ghost-theme-willow templates/willow
 
 Copy in ghost & restart
  
-    docker cp templates/Cle blog_ghost_1:/var/lib/ghost/themes/
+    docker cp templates/willow blog_ghost_1:/var/lib/ghost/themes/
 
-Now template Cle is available in settings/general
+Now template Willow is available in settings/general
 
+You can edit the template via the GUI ghost except for the social promo links where you need to edit in the code:
+
+     nano /var/lib/docker/volumes/blog_ghost/_data/content/themes/willow/partials/sidebar.hbs file.
 
 ### 4. Backup and restore
 
