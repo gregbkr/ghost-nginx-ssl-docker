@@ -1,6 +1,6 @@
 # Ghost + Nginx + Lets Encrypt (production ready)
 
-![ghost.png](https://github.com/gregbkr/ghost-nginx-ssl-docker/raw/master/ghost.png)
+![ghost.png](https://github.com/gregbkr/ghost-nginx-ssl-docker/raw/master/ghost-blog-letsencrypt.PNG)
 
 An easy setup to deploy quickly your blogging platform:
 - Ghost: very easy way to publish your blog (straight writing in a web page and no coding), could get some nice templates for free.
