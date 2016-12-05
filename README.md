@@ -10,6 +10,8 @@ An easy setup to deploy quickly your blogging platform:
 Notes: 
 - Ghost official docker image for dev is working great out of the box. But for production, I couldn't find other way than create a quick build for adding the config.json for ghost (probably because of perm issue as the image is not running as root, which is great for a web-front). With this workaround you still control the setup.
 
+More info: you can find an overview of that setup on my blog: https://greg.satoshi.tech/
+
 ### 1. Prerequisit:
 - Ubuntu like OS
 - docker & docker-compose
