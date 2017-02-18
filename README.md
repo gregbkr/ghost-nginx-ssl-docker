@@ -92,13 +92,11 @@ With crontab
 
 LetsEncrypt give you for free a certificate valid for 3 months. Many company migrated to this open CA because of price and security. The only way you can get a certificate for a domain is if this domain targets the ip where you run the command. So it means that you control the DNS and the server, that's only what we need to be sure the certificate could be delivered.
 
-To update your certificate, you can do manually:
-
-    docker-compose stop
-    docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest certonly --standalone --domain ec.satoshi.tech --email gregbkr@outlook.com --quiet --noninteractive --rsa-key-size 4096 --agree-tos --standalone-supported-challenges http-01
-    docker-compose up -d --build
-
-Or a script in a crontab.
+To update your certificate, you can do manually or a script in a crontab:
+```
+# Renew certificate: weekly, Sunday at 01:00
+00 01 * * 6 /bin/bash -c "docker stop blog_nginx_1 && docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest certonly --standalone --domain ec.satoshi.tech --email gregbkr@outlook.com --quiet --noninteractive --rsa-key-size 4096 --agree-tos --standalone-supported-challenges http-01 && docker start blog_nginx_1"
+```
 
 The email you registered the certificate will be warn few weeks before the vertification will expired.
 
