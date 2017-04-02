@@ -68,7 +68,7 @@ Now template Willow is available in settings/general
 
 You can edit the template via the GUI ghost except for the social promo links where you need to edit in the code:
 
-     nano /var/lib/docker/volumes/blog_ghost/_data/content/themes/willow/partials/sidebar.hbs file.
+     nano /var/lib/docker/volumes/blog_ghost/_data/themes/ghost-theme-willow-master/partials/sidebar.hbs
 
 ### 4. Backup and restore
 
